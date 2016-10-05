@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  def self.find_by_credentials(username, password)
+    user = User.find_by_username(username)
+    return nil if user.nil?
+    user.password?(password) ? user : nil
+  end
+
   def create
     @user = User.new(user_params)
 
