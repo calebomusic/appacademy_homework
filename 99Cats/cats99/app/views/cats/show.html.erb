@@ -59,4 +59,8 @@
       <p> <%= link_to "Cats", cats_url%></p>
     </h3>
   </body>
+
+  <% content_for :footer do %>
+    <p> This is a cat's show page </p>
+  <% end %>
 </html>

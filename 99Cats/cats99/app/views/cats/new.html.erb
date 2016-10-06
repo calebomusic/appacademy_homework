@@ -7,4 +7,8 @@
   <body>
     <%= render "form", cat: @cat, action: :new%>
   </body>
+
+  <% content_for :footer do %>
+    <p> Let's make a new cat! </p>
+  <% end %>
 </html>
