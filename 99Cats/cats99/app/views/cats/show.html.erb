@@ -1,0 +1,62 @@
+<!-- :birth_date, :color, :name, :sex -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Cat details<h2>
+
+    <h2>
+      <table>
+        <tr>
+          <td>Birthday</td>
+          <td>Age</td>
+          <td>Color</td>
+          <td>Name</td>
+          <td>Sex</td>
+          <td>Description</td>
+        </tr>
+        <tr>
+          <td><%= @cat.birth_date %></td>
+          <td><%= @cat.age %></td>
+          <td><%= @cat.color %></td>
+          <td><%= @cat.name %></td>
+          <td><%= @cat.sex %></td>
+          <td><%= @cat.description %></td>
+        </tr>
+      </table>
+    </h2>
+
+    <h2>Requests</h2>
+    <table>
+      <tr>
+        <td>Start Date</td>
+        <td>End Date</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <% @cat.rentals.sort_by{|rental| rental.start_date}.each do |rental| %>
+        <tr>
+          <td><%= rental.start_date %></td>
+          <td><%= rental.end_date %></td>
+
+          <td><%= button_to "Approve", cat_rental_requests_approve_url, {id: rental.id}  %>
+            <form method="post" action="<%=cat_rental_requests_approve_url%>">
+              <input value="Approve" type="submit"/>
+            </form>
+          </td>
+
+        </tr>
+        <% end %>
+    </table>
+
+    <h3>
+      <p> <%= link_to "Edit #{@cat.name}", edit_cat_url(@cat)%></p>
+      <p> <%= link_to "New Cat", new_cat_url%></p>
+      <p> <%= link_to "Cats", cats_url%></p>
+    </h3>
+  </body>
+</html>

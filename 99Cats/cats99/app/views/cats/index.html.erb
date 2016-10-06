@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+  </head>
+  <body>
+
+    <h1>CATS</h1>
+    <% @cats.each do |cat| %>
+
+    <p>
+      <%= link_to "#{cat.name}", cat_url(cat)%>
+      <%= link_to "Edit", edit_cat_url(cat) %>
+    </p>
+
+    <% end %>
+    <h2><%= link_to "Make a fresh new cat", new_cat_url%></h2>
+    <h3><%= link_to "Make a reservation", new_cat_rental_request_url%></h3>
+  </body>
+</html>
