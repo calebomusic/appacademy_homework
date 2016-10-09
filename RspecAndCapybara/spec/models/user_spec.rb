@@ -1,16 +1,23 @@
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe User, type: :model do
+
+  subject(:user) do
+    FactoryGirl.build(:user,
+      name: "username",
+      password: "password")
+  end
+
   it { should validate_presence_of(:name)}
   it { should validate_presence_of(:password_digest)}
-  it { should validate_length_of(:password), is_at_least(6)}
+  it { should validate_length_of(:password).is_at_least(6)}
+
   it { should have_many(:user_votes)}
   it { should have_many(:subs)}
   it { should have_many(:comments)}
 
   describe '#is_password?' do
-    subject(:user) { User.create('username', 'password')}
-
     it 'identifies correct password as correct' do
       expect(user.is_password?('password')).to_be true
     end
@@ -21,7 +28,6 @@ RSpec.describe User, type: :model do
   end
 
   describe '#reset_session_token?' do
-    subject(:user) { user.create('username', 'password'}
     let(:original_session_token) { user.session_token }
 
     it 'resets the session token' do
@@ -30,8 +36,7 @@ RSpec.describe User, type: :model do
   end
 
   describe '#self.find_by_credentials' do
-    subject(:user) { User.create('username', 'password')}
-
+    before { user.save! }
     it 'finds an actual user' do
       expect(user.find_by_credentials('username', 'password')).to eq(user)
     end
