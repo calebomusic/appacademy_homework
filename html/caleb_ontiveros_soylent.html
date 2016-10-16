@@ -9,7 +9,9 @@
     <style media="screen">
       body {
         font-family: Arial, sans-serif;
-        background-color: purple;
+        background-color: transparent;
+        width: 900px
+        margin: 0 auto;
       }
 
       h1 {
@@ -20,10 +22,6 @@
       header > img {
         width: 100px;
       }
-      ul li a {
-        text-decoration-style: none;
-        color: inherit;
-      }
 
       h2 {
         font-size: 32px;
@@ -33,6 +31,86 @@
         list-style: square;
         list-style-type: georgian;
         color: red;
+      }
+
+      .ingredients-list li {
+        margin: 15px 0px;
+      }
+
+      .user_review h4 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      input[type="radio"] {
+        cursor: pointer;
+        outline:none;
+        width: 27px;
+        height: 27px;
+        background-image: url(../assets/stars.png);
+        vertical-align: bottom;
+      }
+
+      input[type="radio"]:checked {
+        background-position: 30px 30px;
+      }
+
+      input:last-child {
+        background: gold;
+      }
+
+      input:last-child:hover {
+        -webkit-filter: brightness(90%);
+      }
+
+      ol li:nth-of-type(2n) {
+        background-color: whitesmoke;
+      }
+
+      h2 + .user_review {
+        borter-top: 1px solid black;
+      }
+
+      nav {
+        display: inline-block;
+      }
+      nav ul li {
+        display: inline-block;
+      }
+
+      nav ul li a {
+        padding: 20px;
+        display: block;
+      }
+
+      section {
+        width: 700px;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      aside {
+        width: 180px;
+        margin-right: 15px;
+        display: inline-block;;
+      }
+
+      input[type="text"], select {
+        display: block;
+        width: 175px;
+      }
+
+      select {
+        margin: 10px 0;
+        width: 180px;
+      }
+
+      textarea {
+        width: 350px;
+      }
+
+      label {
+        display: block;
       }
     </style>
     <script src="../../assets/external_javascript_example.js" type="text/javascript"></script>
@@ -94,9 +172,7 @@
           <li>MIX SOYLENT AT 90 DEGREE ANGLE</li>
           <li>EAT SOYLENT</li>
         </ol>
-    </section>
-
-    <section id="reviews">
+        
       <h2>Reviews</h2>
       <form id="review-form" action="/reviews" method="post">
         <label for="name">Name</label>
@@ -108,8 +184,6 @@
         3<input type="radio" name="rating" value="3">
         4<input type="radio" name="rating" value="4">
         5<input type="radio" name="rating" value="5">
-
-        <label for="expertise">Cooking Expertise</label>
 
         <select id="expertise" name="expertise">
           <option  value="Select cooking expertise" disabled="true" selected="true">Select Cooking Expertise</option>
@@ -123,11 +197,9 @@
           <option value="Professional Cook">Professional Crook</option>
         </select>
 
-        <label>Review
           <textarea id="review" name="review" cols="30" rows="10"></textarea>
-        </label>
-
-        <input type="submit" value="Submit Review"
+          <br>
+        <input type="submit" value="Submit Review">
       </form>
     </section>
 
