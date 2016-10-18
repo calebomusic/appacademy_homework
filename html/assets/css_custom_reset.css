@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: transparent;
+  width: 900px
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 36px;
+  color: blue;
+}
+
+header > img {
+  width: 100px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+.ingredients-list {
+  list-style: square;
+  list-style-type: georgian;
+  color: red;
+}
+
+.ingredients-list li {
+  margin: 15px 0px;
+}
+
+.user_review h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  outline:none;
+  width: 27px;
+  height: 27px;
+  background-image: url(../assets/stars.png);
+  vertical-align: bottom;
+}
+
+input[type="radio"]:checked {
+  background-position: 30px 30px;
+}
+
+input:last-child {
+  background: gold;
+}
+
+input:last-child:hover {
+  -webkit-filter: brightness(90%);
+}
+
+ol li:nth-of-type(2n) {
+  background-color: whitesmoke;
+}
+
+h2 + .user_review {
+  borter-top: 1px solid black;
+}
+
+nav {
+  float: right:
+}
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 20px;
+  display: block;
+}
+
+section {
+  width: 700px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+aside {
+  width: 180px;
+  margin-right: 15px;
+  display: inline-block;;
+}
+
+input[type="text"], select {
+  display: block;
+  width: 175px;
+}
+
+select {
+  margin: 10px 0;
+  width: 180px;
+}
+
+textarea {
+  width: 350px;
+}
+
+label {
+  display: block;
+}
+
+header img {
+  float: left
+}
+
+header:after {
+  display: block;
+  clear: both;
+}
