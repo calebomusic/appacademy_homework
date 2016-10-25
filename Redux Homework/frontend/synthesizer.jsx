@@ -8,8 +8,8 @@ import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
-  store.dispatch = addLoggingToDispatch(store);
   const rootEl = document.getElementById('root');
+  const newStore = applyMiddlewares(store, addLoggingToDispatch());
   ReactDOM.render(<Root store={store} />, rootEl);
 });
 
